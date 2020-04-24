@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+guid: 8c9943c8077600e44ae27f45ce776a40
+timeCreated: 1532648621
+licenseType: Store
+ShaderImporter:
+  defaultTextures:
+  - _FaceMask: {fileID: 2800000, guid: 017a54f884a981348a183f64b04e496d, type: 3}
+  - _EmissionMap: {fileID: 2800000, guid: 101a6f6a9bf2ad74bbd861c8d6aa9885, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

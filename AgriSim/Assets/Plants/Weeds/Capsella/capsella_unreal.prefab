@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3247680888802322304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8270237038419139273}
+  - component: {fileID: 6614214073316160531}
+  m_Layer: 0
+  m_Name: capsella_unreal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8270237038419139273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3247680888802322304}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.65769, y: -5.071598, z: -20.370848}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6614214073316160531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3247680888802322304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b577002b0193c6eb64fdd2ca705b4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TestMaterial: {fileID: 0}
+  beetLeaf:
+  - {fileID: 5030326726930012386, guid: 495d465f1e2d8eab2a6dd660cf493c96, type: 3}
+  - {fileID: 329129065459477821, guid: ff899f09483072d06b3ad410d609e28b, type: 3}
+  - {fileID: 7183229906750882347, guid: dc661a736f3e0bc948fdfa9bf53b7021, type: 3}
+  - {fileID: 9150822233834580020, guid: cd291d93746e8409793e1451946e7d9b, type: 3}
+  - {fileID: 7587793367003048452, guid: eb95c9be5b76d1657a8f90da2ed8b1b7, type: 3}
+  - {fileID: 1294916912316498986, guid: 89225b7c39dbc15c19fff5860b4f1866, type: 3}
+  - {fileID: 752118927196268704, guid: 1f68f39839a5b55f6a4259963a575fe4, type: 3}
+  - {fileID: 4593957928269935295, guid: 94ae4d41c5aeec976b3f55248d41eb9e, type: 3}
+  - {fileID: 1194811252853368649, guid: 56406688966389d1aaa007908e5cbeda, type: 3}
+  beetLeaf_NIR:
+  - {fileID: 1238140388977307622, guid: 87f1cdd1c8f6a08b9b281ea3946ec3fa, type: 3}
+  beetLeaf_TAG: []
+  maxBeetLeafAmount: 7
+  beetLeafScale: {x: 0.075, y: 0.075, z: 0.075}
+  beetLeafRotation: {x: 200, y: 0, z: -90}
+  rend: []
+  thisRend: {fileID: 0}

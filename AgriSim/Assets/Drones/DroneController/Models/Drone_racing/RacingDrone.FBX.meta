@@ -1,0 +1,209 @@
+fileFormatVersion: 2
+guid: 429acf98409e932458b8c0fec59b0710
+timeCreated: 1515930892
+licenseType: Store
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: antenna
+    100002: battery
+    100004: bodyframe
+    100006: camera
+    100008: displaybox
+    100010: displaylight
+    100012: lights
+    100014: //RootNode
+    100016: screws
+    100018: strap
+    100020: support_fl
+    100022: support_fr
+    100024: support_rl
+    100026: support_rr
+    100028: supportfix_fl
+    100030: supportfix_fr
+    100032: supportfix_rl
+    100034: supportfix_rr
+    100036: topbox
+    100038: topstrap
+    100040: transpbox
+    100042: wings_lf
+    100044: wings_lr
+    100046: wings_rf
+    100048: wings_rr
+    100050: wires
+    400000: antenna
+    400002: battery
+    400004: bodyframe
+    400006: camera
+    400008: displaybox
+    400010: displaylight
+    400012: lights
+    400014: //RootNode
+    400016: screws
+    400018: strap
+    400020: support_fl
+    400022: support_fr
+    400024: support_rl
+    400026: support_rr
+    400028: supportfix_fl
+    400030: supportfix_fr
+    400032: supportfix_rl
+    400034: supportfix_rr
+    400036: topbox
+    400038: topstrap
+    400040: transpbox
+    400042: wings_lf
+    400044: wings_lr
+    400046: wings_rf
+    400048: wings_rr
+    400050: wires
+    2300000: antenna
+    2300002: battery
+    2300004: bodyframe
+    2300006: camera
+    2300008: displaybox
+    2300010: displaylight
+    2300012: lights
+    2300014: screws
+    2300016: strap
+    2300018: support_fl
+    2300020: support_fr
+    2300022: support_rl
+    2300024: support_rr
+    2300026: supportfix_fl
+    2300028: supportfix_fr
+    2300030: supportfix_rl
+    2300032: supportfix_rr
+    2300034: topbox
+    2300036: topstrap
+    2300038: transpbox
+    2300040: wings_lf
+    2300042: wings_lr
+    2300044: wings_rf
+    2300046: wings_rr
+    2300048: wires
+    3300000: antenna
+    3300002: battery
+    3300004: bodyframe
+    3300006: camera
+    3300008: displaybox
+    3300010: displaylight
+    3300012: lights
+    3300014: screws
+    3300016: strap
+    3300018: support_fl
+    3300020: support_fr
+    3300022: support_rl
+    3300024: support_rr
+    3300026: supportfix_fl
+    3300028: supportfix_fr
+    3300030: supportfix_rl
+    3300032: supportfix_rr
+    3300034: topbox
+    3300036: topstrap
+    3300038: transpbox
+    3300040: wings_lf
+    3300042: wings_lr
+    3300044: wings_rf
+    3300046: wings_rr
+    3300048: wires
+    4300000: bodyframe
+    4300002: topbox
+    4300004: antenna
+    4300006: camera
+    4300008: displaybox
+    4300010: strap
+    4300012: battery
+    4300014: topstrap
+    4300016: transpbox
+    4300018: wings_rr
+    4300020: lights
+    4300022: screws
+    4300024: displaylight
+    4300026: wings_lf
+    4300028: wings_rf
+    4300030: wings_lr
+    4300032: wires
+    4300034: support_rr
+    4300036: support_fl
+    4300038: support_fr
+    4300040: support_rl
+    4300042: supportfix_fl
+    4300044: supportfix_rl
+    4300046: supportfix_rr
+    4300048: supportfix_fr
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

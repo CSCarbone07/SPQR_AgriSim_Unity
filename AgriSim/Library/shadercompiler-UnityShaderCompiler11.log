@@ -1,0 +1,60 @@
+Base path: '/home/cscarbone/2019.2.10f1/Editor/Data', plugins path '/home/cscarbone/2019.2.10f1/Editor/Data/PlaybackEngines'
+Cmd: initializeCompiler
+Cmd: compileComputeKernel
+  api=18 insize=15603 outsize=287078 ok=1
+Cmd: compileComputeKernel
+  api=18 insize=15603 outsize=146168 ok=1
+Cmd: compileComputeKernel
+  api=18 insize=15603 outsize=297191 ok=1
+Cmd: compileComputeKernel
+  api=18 insize=15603 outsize=311116 ok=1
+Cmd: compileComputeKernel
+  api=18 insize=25750 outsize=58317 ok=1
+Cmd: compileComputeKernel
+  api=15 insize=1176 outsize=2269 ok=1
+Cmd: compileComputeKernel
+  api=18 insize=10881 outsize=40156 ok=1
+Cmd: compileComputeKernel
+  api=18 insize=11383 outsize=46750 ok=1
+Cmd: compileComputeKernel
+  api=15 insize=4855 outsize=7819 ok=1
+Cmd: compileComputeKernel
+  api=18 insize=4025 outsize=23384 ok=1
+Cmd: compileComputeKernel
+  api=15 insize=11912 outsize=2771 ok=1
+Cmd: compileComputeKernel
+  api=18 insize=1940 outsize=18744 ok=1
+Cmd: compileComputeKernel
+  api=15 insize=18299 outsize=24986 ok=1
+Cmd: compileComputeKernel
+  api=15 insize=2643 outsize=5716 ok=1
+Cmd: compileComputeKernel
+  api=15 insize=7247 outsize=17761 ok=1
+Cmd: compileComputeKernel
+  api=18 insize=642 outsize=3153 ok=1
+Cmd: compileComputeKernel
+  api=15 insize=1806 outsize=4091 ok=1
+Cmd: compileComputeKernel
+  api=18 insize=20668 outsize=406283 ok=1
+Cmd: compileComputeKernel
+  api=18 insize=36515 outsize=167760 ok=1
+Cmd: compileComputeKernel
+  api=18 insize=5065 outsize=2991 ok=1
+Cmd: compileComputeKernel
+  api=18 insize=824 outsize=788 ok=1
+Cmd: compileComputeKernel
+  api=18 insize=1454 outsize=2335 ok=1
+Cmd: compileComputeKernel
+  error: 1 plat 15 at Sort.compute(218): use of potentially uninitialized variable (GetKeyWithCheck)
+  api=15 insize=9814 outsize=8516 ok=1
+Cmd: compileComputeKernel
+  error: 1 plat 18 at Sort.compute(218): use of potentially uninitialized variable (GetKeyWithCheck)
+  api=18 insize=9814 outsize=13715 ok=1
+Cmd: compileComputeKernel
+  api=18 insize=7700 outsize=37322 ok=1
+Cmd: compileComputeKernel
+  api=15 insize=17632 outsize=12627 ok=1
+Cmd: compileComputeKernel
+  api=18 insize=3844 outsize=18281 ok=1
+
+Quitting shader compiler process

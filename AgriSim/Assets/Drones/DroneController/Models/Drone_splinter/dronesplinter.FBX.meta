@@ -1,0 +1,208 @@
+fileFormatVersion: 2
+guid: 27587572e74cf4962a9ccedb11b3928d
+timeCreated: 1474273022
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: antt_low
+    100002: arch_low
+    100004: body_low
+    100006: bodydoor_low
+    100008: bodyp_low
+    100010: cfront_low
+    100012: conpart_low
+    100014: crear_low
+    100016: cyl_low
+    100018: cylin_low
+    100020: cylside_low
+    100022: doorpart_low
+    100024: //RootNode
+    100026: incover_low
+    100028: inncyl_low
+    100030: mec_low
+    100032: metalarms_low
+    100034: outbump_low
+    100036: partsenergy_low
+    100038: partsenergys_low
+    100040: prot_low
+    100042: prot_low 1
+    100044: rotorl_low
+    100046: rotorr_low
+    100048: sidedoor_low
+    100050: sidedoorh_low
+    100052: top_low
+    100054: wires_low
+    400000: antt_low
+    400002: arch_low
+    400004: body_low
+    400006: bodydoor_low
+    400008: bodyp_low
+    400010: cfront_low
+    400012: conpart_low
+    400014: crear_low
+    400016: cyl_low
+    400018: cylin_low
+    400020: cylside_low
+    400022: doorpart_low
+    400024: //RootNode
+    400026: incover_low
+    400028: inncyl_low
+    400030: mec_low
+    400032: metalarms_low
+    400034: outbump_low
+    400036: partsenergy_low
+    400038: partsenergys_low
+    400040: prot_low
+    400042: prot_low 1
+    400044: rotorl_low
+    400046: rotorr_low
+    400048: sidedoor_low
+    400050: sidedoorh_low
+    400052: top_low
+    400054: wires_low
+    2300000: antt_low
+    2300002: arch_low
+    2300004: body_low
+    2300006: bodydoor_low
+    2300008: bodyp_low
+    2300010: cfront_low
+    2300012: conpart_low
+    2300014: crear_low
+    2300016: cyl_low
+    2300018: cylin_low
+    2300020: cylside_low
+    2300022: doorpart_low
+    2300024: incover_low
+    2300026: inncyl_low
+    2300028: mec_low
+    2300030: metalarms_low
+    2300032: outbump_low
+    2300034: partsenergy_low
+    2300036: partsenergys_low
+    2300038: prot_low
+    2300040: prot_low 1
+    2300042: rotorl_low
+    2300044: rotorr_low
+    2300046: sidedoor_low
+    2300048: sidedoorh_low
+    2300050: top_low
+    2300052: wires_low
+    3300000: antt_low
+    3300002: arch_low
+    3300004: body_low
+    3300006: bodydoor_low
+    3300008: bodyp_low
+    3300010: cfront_low
+    3300012: conpart_low
+    3300014: crear_low
+    3300016: cyl_low
+    3300018: cylin_low
+    3300020: cylside_low
+    3300022: doorpart_low
+    3300024: incover_low
+    3300026: inncyl_low
+    3300028: mec_low
+    3300030: metalarms_low
+    3300032: outbump_low
+    3300034: partsenergy_low
+    3300036: partsenergys_low
+    3300038: prot_low
+    3300040: prot_low 1
+    3300042: rotorl_low
+    3300044: rotorr_low
+    3300046: sidedoor_low
+    3300048: sidedoorh_low
+    3300050: top_low
+    3300052: wires_low
+    4300000: body_low
+    4300002: cyl_low
+    4300004: antt_low
+    4300006: partsenergy_low
+    4300008: mec_low
+    4300010: bodyp_low
+    4300012: incover_low
+    4300014: top_low
+    4300016: cylin_low
+    4300018: wires_low
+    4300020: cylside_low
+    4300022: cfront_low
+    4300024: crear_low
+    4300026: bodydoor_low
+    4300028: sidedoor_low
+    4300030: sidedoorh_low
+    4300032: doorpart_low
+    4300034: prot_low
+    4300036: metalarms_low
+    4300038: outbump_low
+    4300040: conpart_low
+    4300042: inncyl_low
+    4300044: arch_low
+    4300046: partsenergys_low
+    4300048: prot_low
+    4300050: rotorr_low
+    4300052: rotorl_low
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.4
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
