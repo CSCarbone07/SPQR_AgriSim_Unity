@@ -37,6 +37,7 @@ GNU General Public License for more details.
 ## Contributors
 
 Carbone, Carlos
+- Email: cscarbone07@gmail.com
 - [Personal Website](https://cscarbone1990.wixsite.com/website)
 - [LinkedIn](https://www.linkedin.com/in/carlos-carbone/)
 
@@ -47,5 +48,4 @@ Carbone, Carlos
 
 ## TODOs
 
-- One entry
 
