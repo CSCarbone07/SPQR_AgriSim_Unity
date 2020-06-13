@@ -27,6 +27,12 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
+
+### Notes
+
+Disclaimer: The simulator is currently very unorganized, this repo is public mainly to share the dataset links for articles being published. If you need further clarification about any feature you can send me an email to cscarbone07@gmail.com.
+
+
 ## Citation
 
 
