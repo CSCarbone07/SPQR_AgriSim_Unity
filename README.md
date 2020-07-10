@@ -44,7 +44,7 @@ Disclaimer: The simulator is currently very unorganized, this repo is public mai
 
 Carbone, Carlos
 - Email: cscarbone07@gmail.com
-- [Personal Website](https://cscarbone1990.wixsite.com/website)
+- [Personal Website](https://carloscarbone1990.wixsite.com/cscarbone07)
 - [LinkedIn](https://www.linkedin.com/in/carlos-carbone/)
 
 
