@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3247680888802322304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8270237038419139273}
+  - component: {fileID: -382268581007074672}
+  m_Layer: 0
+  m_Name: sunflower_jesi
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8270237038419139273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3247680888802322304}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.65769, y: -5.071598, z: -20.370848}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-382268581007074672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3247680888802322304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e3e299b3a7a065718dc08419b3a5c86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TestMaterial: {fileID: 0}
+  rootLeaf:
+  - {fileID: 3624911450771146581, guid: b52fd50b0e3e9b4c89c88d7557a6f2da, type: 3}
+  rootLeaf_NIR:
+  - {fileID: 3354956976013619209, guid: ce751c06df55da8cc908da72074101f3, type: 3}
+  headLeaf:
+  - {fileID: 2808055761803255446, guid: 2f8036be3eb7c3221a60ea61a91e4689, type: 3}
+  headLeaf_NIR:
+  - {fileID: 6924680994081463598, guid: b20029d8ba09060c58cfc7390a000424, type: 3}
+  Leaf_TAG: []
+  plantDeltaHeight: 2
+  leafScale: {x: 1, y: 1, z: 1}
+  plantRotation: {x: 200, y: 0, z: -90}
+  rend: []
+  thisRend: {fileID: 0}
