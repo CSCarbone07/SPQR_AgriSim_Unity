@@ -71,7 +71,7 @@ PrefabInstance:
         type: 3}
       propertyPath: TAG_Mat
       value: 
-      objectReference: {fileID: 2100000, guid: abef61a1ccfed104ca3ef88651a50056, type: 2}
+      objectReference: {fileID: 2100000, guid: e0116819a0361671f89c0d93e108b887, type: 2}
     - target: {fileID: 2930737863377244354, guid: db0f841a0716e2732879939c03cbd7a9,
         type: 3}
       propertyPath: m_Enabled
@@ -86,12 +86,12 @@ PrefabInstance:
         type: 3}
       propertyPath: NIR_Mat
       value: 
-      objectReference: {fileID: 2100000, guid: ef1038cafedbdd736800a5808eb84aae, type: 2}
+      objectReference: {fileID: 2100000, guid: 56c50c6f7bd3cd29db5a86c5c1ff1c09, type: 2}
     - target: {fileID: 2930737863377244354, guid: db0f841a0716e2732879939c03cbd7a9,
         type: 3}
       propertyPath: RGB_Mat
       value: 
-      objectReference: {fileID: 2100000, guid: 8fa6ea42e375e554789a76282cabe43d, type: 2}
+      objectReference: {fileID: 2100000, guid: 1ca6a6404a888bbcca5bc5a47bdbce49, type: 2}
     - target: {fileID: 2930737863377244354, guid: db0f841a0716e2732879939c03cbd7a9,
         type: 3}
       propertyPath: pathToTextures_RGB
@@ -101,6 +101,31 @@ PrefabInstance:
         type: 3}
       propertyPath: pathToTextures_NIR
       value: sunflower/weeds/nir/
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930737863377244354, guid: db0f841a0716e2732879939c03cbd7a9,
+        type: 3}
+      propertyPath: maxNumberOfTextures
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930737863377244354, guid: db0f841a0716e2732879939c03cbd7a9,
+        type: 3}
+      propertyPath: maxIndexOfTextures
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930737863377244354, guid: db0f841a0716e2732879939c03cbd7a9,
+        type: 3}
+      propertyPath: weedScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930737863377244354, guid: db0f841a0716e2732879939c03cbd7a9,
+        type: 3}
+      propertyPath: weedScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930737863377244354, guid: db0f841a0716e2732879939c03cbd7a9,
+        type: 3}
+      propertyPath: weedScale.z
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db0f841a0716e2732879939c03cbd7a9, type: 3}

@@ -12,16 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: sunflower_Terrain
       objectReference: {fileID: 0}
-    - target: {fileID: 4091826073740472126, guid: e324d3f80d99bfd489b4a3ace7ae3e0c,
+    - target: {fileID: 8776146947587348572, guid: e324d3f80d99bfd489b4a3ace7ae3e0c,
         type: 3}
-      propertyPath: terrain_TAG
+      propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e31fe99349cf2cd42b705e73d38f5115, type: 2}
-    - target: {fileID: 4091826073740472126, guid: e324d3f80d99bfd489b4a3ace7ae3e0c,
-        type: 3}
-      propertyPath: terrain_NIR
-      value: 
-      objectReference: {fileID: 2100000, guid: c881b1093218e9f278fcb1fc31cccacd, type: 2}
+      objectReference: {fileID: 2100000, guid: 30b2b2a2c6165dc12a12d9f3209249ea, type: 2}
     - target: {fileID: 8776146947587348570, guid: e324d3f80d99bfd489b4a3ace7ae3e0c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -77,10 +72,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8776146947587348572, guid: e324d3f80d99bfd489b4a3ace7ae3e0c,
+    - target: {fileID: 4091826073740472126, guid: e324d3f80d99bfd489b4a3ace7ae3e0c,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: terrain_TAG
       value: 
-      objectReference: {fileID: 2100000, guid: 30b2b2a2c6165dc12a12d9f3209249ea, type: 2}
+      objectReference: {fileID: 2100000, guid: e31fe99349cf2cd42b705e73d38f5115, type: 2}
+    - target: {fileID: 4091826073740472126, guid: e324d3f80d99bfd489b4a3ace7ae3e0c,
+        type: 3}
+      propertyPath: terrain_NIR
+      value: 
+      objectReference: {fileID: 2100000, guid: c881b1093218e9f278fcb1fc31cccacd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e324d3f80d99bfd489b4a3ace7ae3e0c, type: 3}

@@ -266,7 +266,7 @@ public class SugarBeet_Spawner : SpawnerAndSwitch
 
     public override void SwitchToTAG()
     {
-        base.SwitchToNIR();
+        base.SwitchToTAG();
         for (int x = 0; x < maxBeetLeafAmount; x++)
         {
             GameObject createdPrefabLeaf = Instantiate(beetLeaf_TAG[createdPrefabLeavesType[x]], createdPrefabLeaves[x].transform.position, createdPrefabLeaves[x].transform.rotation);

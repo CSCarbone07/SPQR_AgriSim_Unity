@@ -163,7 +163,7 @@ Light:
   serializedVersion: 9
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 5
+  m_Intensity: 3.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.802082
@@ -404,13 +404,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Include_NIR: 1
-  goodPlant: {fileID: 3247680888802322304, guid: 7a18a0bbd21df2354a7ee25376b71a46,
+  goodPlant: {fileID: 9162085571466964456, guid: 0d209be6d6c71c823810c667f47e932d,
     type: 3}
   goodPlant_Offset: {x: 0, y: 0.2, z: 0}
   goodPlantScale: {x: 1, y: 1, z: 1}
   WeedNumber: 100
   weedPlants:
-  - {fileID: 1880638552065739605, guid: 05d371c5f22c843daa3784ad7d14aae5, type: 3}
+  - {fileID: 1880638552065739605, guid: 8662116dd1f62d41daab71c69c79dc5d, type: 3}
   weedPlants_Offset:
   - {x: 0, y: 0.15, z: 0}
   weedPlants_Rotation_Min:
@@ -432,6 +432,6 @@ MonoBehaviour:
   PlainBlack: {fileID: 0}
   green: {fileID: 0}
   white: {fileID: 0}
-  terrain: {fileID: 339873330507695336, guid: d8421505f9486c4f4b37289a1888d2f0, type: 3}
-  TakeScreenshots: 0
+  terrain: {fileID: 339873330507695336, guid: 4547266bb275acd519eccc25bfae6f16, type: 3}
+  TakeScreenshots: 1
   SaveBoxes: 0

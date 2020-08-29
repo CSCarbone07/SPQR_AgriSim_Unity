@@ -7,7 +7,6 @@ public class quadPlant_Spawner_RandomTexture : quadPlant_Spawner
     public Material RGB_Mat;
     public Material NIR_Mat;
     public Material TAG_Mat;
-    //public Texture newTexture;
 
     // Start is called before the first frame update
     public override void Start()
@@ -19,11 +18,11 @@ public class quadPlant_Spawner_RandomTexture : quadPlant_Spawner
         //Texture2D[] texturePool = new Texture2D[3];
         //texturePool = Resources.LoadAll<Texture2D>("bonirob/weds/rgb");
         //Texture2D myTexture = texturePool[Random.Range(0, texturePool.Length-1)];
-        int randomName = Random.Range(0, 50);
+        int randomName = Random.Range(0, maxIndexOfTextures);
         //Texture2D myRGBTexture = Resources.Load<Texture2D>("bonirob/weeds/rgb/" + randomName) as Texture2D;
         //Texture2D myNIRTexture = Resources.Load<Texture2D>("bonirob/weeds/nir/" + randomName) as Texture2D;
-        Texture2D myRGBTexture = Resources.Load<Texture2D>("bonirob/weeds/rgb/" + randomName) as Texture2D;
-        Texture2D myNIRTexture = Resources.Load<Texture2D>("bonirob/weeds/nir/" + randomName) as Texture2D;
+        Texture2D myRGBTexture = Resources.Load<Texture2D>(pathToTextures_RGB + randomName) as Texture2D;
+        Texture2D myNIRTexture = Resources.Load<Texture2D>(pathToTextures_NIR + randomName) as Texture2D;
 
         /*
         var sr = new StreamReader(Application.dataPath + "/" + fileName);
