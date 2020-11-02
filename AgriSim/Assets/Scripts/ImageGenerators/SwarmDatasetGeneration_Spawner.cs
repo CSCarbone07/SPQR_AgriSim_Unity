@@ -157,7 +157,7 @@ public class SwarmDatasetGeneration_Spawner
         newWeed = new GameObject[WeedNumber];
         boxes = new string[plantNumber + WeedNumber];
         //counter = WeedNumber * imgPerWeedNumber;
-        counter = 437;
+        counter = 534;
         specs = new species[plantNumber + WeedNumber];
 
         if(Include_NIR)
@@ -214,7 +214,7 @@ public class SwarmDatasetGeneration_Spawner
             SpawnTerrain();
             Spawn();
             float randInitX = Random.Range(-3, 3);
-            float randInitY = 0;  //Random.Range(-1, 1);
+            float randInitY = Random.Range(-0.5f, 0.5f);
             float randInitZ = Random.Range(-3, 3);
             Vector3 RandomPosition = new Vector3(randInitX, randInitY, randInitZ);
             this.transform.position = cameraInitialPosition + RandomPosition;
@@ -266,6 +266,10 @@ public class SwarmDatasetGeneration_Spawner
     private void CounterUpdate()
     {
         counter++;
+        if(counter >= 1001)
+        {
+            UnityEditor.EditorApplication.isPlaying = false;
+        }
     }
 
     private void clearScene()

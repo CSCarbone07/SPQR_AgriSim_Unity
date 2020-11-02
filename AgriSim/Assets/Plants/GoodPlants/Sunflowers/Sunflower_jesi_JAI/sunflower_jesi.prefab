@@ -49,40 +49,55 @@ MonoBehaviour:
   - {fileID: 3624911450771146581, guid: b52fd50b0e3e9b4c89c88d7557a6f2da, type: 3}
   - {fileID: 6454790880613509993, guid: fd30f18e6e948b203ae126b127106773, type: 3}
   - {fileID: 2542394814891539709, guid: 1d4be77a587ce849c8f4bf9c7a06d70c, type: 3}
+  - {fileID: 8241023352716375504, guid: 9115c1647d5bf016da0490a1b12d57be, type: 3}
+  - {fileID: 5556958007346625776, guid: 9e955ecd7eabbb9bc81b57d9c17429b6, type: 3}
   rootLeaf_NIR:
   - {fileID: 3354956976013619209, guid: ce751c06df55da8cc908da72074101f3, type: 3}
   - {fileID: 5069965633001429358, guid: 28e8aeda49f8b8c9da6565f8bae59878, type: 3}
   - {fileID: 5069965633001429358, guid: 28e8aeda49f8b8c9da6565f8bae59878, type: 3}
   - {fileID: 7850951843008609937, guid: af857663c7627fc1e98c99871ee05b61, type: 3}
+  - {fileID: 5234308514997296190, guid: 536f3f42d9666b6848e9daf752345e52, type: 3}
+  - {fileID: 7918538394032569351, guid: 0f8fb9274d75b3aa3ab2189581d1d161, type: 3}
   rootLeaf_TAG:
   - {fileID: 3354956976013619209, guid: 62732f1520cbbdb31b8fb4e987995e51, type: 3}
   - {fileID: 3354956976013619209, guid: 62732f1520cbbdb31b8fb4e987995e51, type: 3}
   - {fileID: 3938071566769005380, guid: 4f060cd05cb67d7deabdce3901e71683, type: 3}
   - {fileID: 7850951843008609937, guid: 4efdfe8e194fa509fa307c02d1b15356, type: 3}
+  - {fileID: 5234308514997296190, guid: 185745b1c255397cca2ec58422f6aa23, type: 3}
+  - {fileID: 7918538394032569351, guid: 3a44dd853daa7192583ffd9f30df0243, type: 3}
   headLeaf:
   - {fileID: 2808055761803255446, guid: 2f8036be3eb7c3221a60ea61a91e4689, type: 3}
   - {fileID: 5165627324270730919, guid: 514b1d8e009f2bc4baed2372323f1d5f, type: 3}
   - {fileID: 7923092966919684950, guid: 9274495501fe193ba9fc8a61f921580f, type: 3}
   - {fileID: 4954131158419364228, guid: 367a81c3c0d6cf0b383abac78aa4640f, type: 3}
+  - {fileID: 1188592747582710532, guid: ff5d5cfc3b77645eb9ad46260569b98b, type: 3}
+  - {fileID: 6571242796010144286, guid: e25eaab8ea2060ba783fdda2438c581f, type: 3}
   headLeaf_NIR:
   - {fileID: 6924680994081463598, guid: b20029d8ba09060c58cfc7390a000424, type: 3}
   - {fileID: 680042323949484356, guid: 955bdc7a720c3a04187cf9370253db5c, type: 3}
   - {fileID: 4647669853077895429, guid: b75526060a5c73fe499a72da7d876ba7, type: 3}
   - {fileID: 7531467035387281944, guid: fe9409326c7973933babbcbbf862ff69, type: 3}
+  - {fileID: 8678832932818677380, guid: 2805c8d20141f52fa8ac9a2db3a4864f, type: 3}
+  - {fileID: 7391054896041845047, guid: c6b8461f9b0d81efab202feaed144114, type: 3}
   headLeaf_TAG:
   - {fileID: 6924680994081463598, guid: 132a6c717acc0c40cb1cea7502cdfdfb, type: 3}
   - {fileID: 680042323949484356, guid: 5ca836d71cac1217faa4b4a31967e307, type: 3}
   - {fileID: 4647669853077895429, guid: b75a1709110e3354d836bb1be40f7d1a, type: 3}
   - {fileID: 7531467035387281944, guid: efa8fbe83c05c61ee86dd4ca1d194605, type: 3}
+  - {fileID: 8678832932818677380, guid: ef74c549ff1b2901bbcedfeb196d74ed, type: 3}
+  - {fileID: 7391054896041845047, guid: 333abb69c0acf4b0b8e2c1c1e249d0aa, type: 3}
   centerLeaf:
   - {fileID: 4198964908791937046, guid: 072b1a6dd61b750a7be009a1b2a8a699, type: 3}
   - {fileID: 4198964908791937046, guid: d16d29c60b0d03f7992af2e43cd31bbf, type: 3}
+  - {fileID: 4198964908791937046, guid: 3883321de117ea2fc92dd649c8f473da, type: 3}
   centerLeaf_NIR:
   - {fileID: 4322103906811162672, guid: 0e2a234f38d7a584887aef9c79b057fd, type: 3}
   - {fileID: 2865393419641790323, guid: 0b45f2759c7ad8f5d93a2aa7cdffafa6, type: 3}
+  - {fileID: 6659980629803963577, guid: 0b148cdfae7f2a482ac56d881613fc76, type: 3}
   centerLeaf_TAG:
   - {fileID: 4322103906811162672, guid: e4128c78d630a43b6a7db57b75ac903b, type: 3}
   - {fileID: 2865393419641790323, guid: c70d11b7e6441e2fb929a251dbc0e5c7, type: 3}
+  - {fileID: 6659980629803963577, guid: 7f635cc56bfa4d472b2b7a779681ef84, type: 3}
   plantDeltaHeight: 0.1
   leafScale: {x: 0.1, y: 0.1, z: 0.1}
   basePlantRotation: {x: 200, y: 0, z: -90}
