@@ -6,6 +6,7 @@ using UnityEngine;
 using System.IO;
 using Random = UnityEngine.Random;
 
+[ExecuteInEditMode]
 public class SugarBeet_Spawner : SpawnerAndSwitch
 {
 
@@ -20,8 +21,10 @@ public class SugarBeet_Spawner : SpawnerAndSwitch
     public int maxBeetLeafAmount = 7;
     public Vector3 beetLeafScale = new Vector3(1, 1, 1);
 
-    private GameObject[] createdPrefabLeaves;
-    private int[] createdPrefabLeavesType;
+    [HideInInspector]
+    public GameObject[] createdPrefabLeaves;
+    [HideInInspector]
+    public int[] createdPrefabLeavesType;
 
 
     protected Vector3 randomRotationValue;
@@ -30,12 +33,17 @@ public class SugarBeet_Spawner : SpawnerAndSwitch
     public Renderer[] rend;
     public Renderer thisRend;
 
+    private bool didSpawnedOnce = false;
 
     // Start is called before the first frame update
     public override void Start()
     {
-        base.Start();
+        //base.Start();
         thisRend = GetComponent<Renderer>();
+        //print(createdPrefabLeaves.Length);
+        //print(createdPrefabLeavesType.Length);
+
+
         //OnDrawGizmosSelected();
         /*
         rend = new Renderer[createdPrefabLeaves.Length];
@@ -91,6 +99,13 @@ public class SugarBeet_Spawner : SpawnerAndSwitch
     public override void Spawn()
     {
         base.Spawn();
+
+        foreach (Transform child in transform) //this.gameObject.transform)
+        {
+            //DestroyImmediate(child.gameObject);
+            GameObject.DestroyImmediate(child.gameObject);
+        }
+
         //Debug.Log("I am a Good Plant");
         //GameObject createdPrefabStem = new GameObject();
         createdPrefabLeaves = new GameObject[maxBeetLeafAmount];
@@ -103,7 +118,7 @@ public class SugarBeet_Spawner : SpawnerAndSwitch
 
         for (int x = 0; x < maxBeetLeafAmount; x++)
         {
-            Debug.Log("spawning leaf: " + x);
+            //Debug.Log("spawning leaf: " + x);
 
 
             randomRotationValue = new Vector3(0f, x * 50f, 0f);
@@ -234,8 +249,8 @@ public class SugarBeet_Spawner : SpawnerAndSwitch
 
             //createdPrefabLeaf.transform.SetParent(createdPrefabStem.transform);
         }
-        //SwitchToNIR();
-
+        if (didSpawnedOnce == false)
+        { didSpawnedOnce = true; }
 
     }
 
@@ -248,18 +263,43 @@ public class SugarBeet_Spawner : SpawnerAndSwitch
         return ((p1.x * (p2.y - p3.y) + p2.x * (p3.y - p1.y) + p3.x * (p1.y - p2.y)) / 2);
     }
 
+    public override void SwitchToRGB()
+    {
+        base.SwitchToRGB();
+
+        if (createdPrefabLeaves.Length > 0)
+        {
+            for (int x = 0; x < maxBeetLeafAmount; x++)
+            {
+                GameObject createdPrefabLeaf = Instantiate(beetLeaf[createdPrefabLeavesType[x]], createdPrefabLeaves[x].transform.position, createdPrefabLeaves[x].transform.rotation);
+                //(beetLeaf_NIR[createdPrefabLeavesType[x]], createdPrefabLeaves[x]);
+                createdPrefabLeaf.transform.SetParent(this.transform);
+                createdPrefabLeaf.transform.localScale = createdPrefabLeaves[x].transform.localScale;
+                Destroy(createdPrefabLeaves[x]);
+                createdPrefabLeaves[x] = createdPrefabLeaf;
+                //Debug.Log(createdPrefabLeavesType[x]);
+            }
+        }
+
+    }
+
     public override void SwitchToNIR()
     {
         base.SwitchToNIR();
-        for (int x = 0; x < maxBeetLeafAmount; x++)
+
+        if (createdPrefabLeaves.Length > 0)
         {
-            GameObject createdPrefabLeaf = Instantiate(beetLeaf_NIR[createdPrefabLeavesType[x]], createdPrefabLeaves[x].transform.position, createdPrefabLeaves[x].transform.rotation);
-            createdPrefabLeaf.transform.localScale = createdPrefabLeaves[x].transform.localScale;
-            //(beetLeaf_NIR[createdPrefabLeavesType[x]], createdPrefabLeaves[x]);
-            createdPrefabLeaf.transform.SetParent(this.transform);
-            Destroy(createdPrefabLeaves[x]);
-            createdPrefabLeaves[x] = createdPrefabLeaf;
-            //Debug.Log(createdPrefabLeavesType[x]);
+            for (int x = 0; x < maxBeetLeafAmount; x++)
+            {
+                GameObject createdPrefabLeaf = Instantiate(beetLeaf_NIR[createdPrefabLeavesType[x]], createdPrefabLeaves[x].transform.position, createdPrefabLeaves[x].transform.rotation);
+                //(beetLeaf_NIR[createdPrefabLeavesType[x]], createdPrefabLeaves[x]);
+                createdPrefabLeaf.transform.SetParent(this.transform);
+                createdPrefabLeaf.transform.localScale = createdPrefabLeaves[x].transform.localScale;
+                Destroy(createdPrefabLeaves[x]);
+                createdPrefabLeaves[x] = createdPrefabLeaf;
+                //Debug.Log(createdPrefabLeavesType[x]);
+                //print(x);
+            }
         }
 
     }
@@ -267,16 +307,46 @@ public class SugarBeet_Spawner : SpawnerAndSwitch
     public override void SwitchToTAG()
     {
         base.SwitchToTAG();
-        for (int x = 0; x < maxBeetLeafAmount; x++)
+        if (createdPrefabLeaves.Length > 0)
         {
-            GameObject createdPrefabLeaf = Instantiate(beetLeaf_TAG[createdPrefabLeavesType[x]], createdPrefabLeaves[x].transform.position, createdPrefabLeaves[x].transform.rotation);
-            createdPrefabLeaf.transform.localScale = createdPrefabLeaves[x].transform.localScale;
-            //(beetLeaf_NIR[createdPrefabLeavesType[x]], createdPrefabLeaves[x]);
-            createdPrefabLeaf.transform.SetParent(this.transform);
-            Destroy(createdPrefabLeaves[x]);
-            createdPrefabLeaves[x] = createdPrefabLeaf;
-            //Debug.Log(createdPrefabLeavesType[x]);
+            for (int x = 0; x < maxBeetLeafAmount; x++)
+            {
+                GameObject createdPrefabLeaf = Instantiate(beetLeaf_TAG[createdPrefabLeavesType[x]], createdPrefabLeaves[x].transform.position, createdPrefabLeaves[x].transform.rotation);
+                //(beetLeaf_NIR[createdPrefabLeavesType[x]], createdPrefabLeaves[x]);
+                createdPrefabLeaf.transform.SetParent(this.transform);
+                createdPrefabLeaf.transform.localScale = createdPrefabLeaves[x].transform.localScale;
+                Destroy(createdPrefabLeaves[x]);
+                createdPrefabLeaves[x] = createdPrefabLeaf;
+                //Debug.Log(createdPrefabLeavesType[x]);
+            }
         }
+    }
 
+    public void getLeaves()
+    {
+        print("types of leaves");
+        //print(this.transform.GetChilds);
+        //print(createdPrefabLeavesType[0]);
+        foreach (Transform child in transform)
+        {
+            print(beetLeaf[1].name);
+            print(child.name);
+            print(child.GetType());
+            print(createdPrefabLeaves[1]);
+
+            //if (child == beetLeaf[1])
+
+            /*
+            if (beetLeaf.Length > 0)
+            {
+                var childCasted = new GameObject();
+                if (childCasted as beetLeaf[1])
+                {
+                    print("match found");
+                }
+            }
+            */
+        }
+        didSpawnedOnce = true; // used to have the right reference
     }
 }

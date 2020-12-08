@@ -258,7 +258,7 @@ public class CropWeedGeneration: MonoBehaviour
         GameObject myLight = GameObject.Find("Directional Light");
         if (myLight)
         {
-            myLight.GetComponent<RandomLight>().changeLight();
+            myLight.GetComponent<RandomLight>().changeLight_intensity();
         }
     }
 

@@ -33,16 +33,22 @@ public class RandomLight : MonoBehaviour
 
     }
 
-    public void changeLight()
+    public void changeLight_intensity()
     {
-            intensity = Random.Range(lowest_intensity_multiplier, highest_intensity_multiplier);
-            lt.color = color * intensity;
+        intensity = Random.Range(lowest_intensity_multiplier, highest_intensity_multiplier);
+        //print("change light " + intensity);
 
-            rotationX = Random.Range(60f, 120f);
-            rotationZ = Random.Range(60f, 120f);
-            lt.transform.rotation = Quaternion.Euler(new Vector3(rotationX, 0f, rotationZ));
+        //lt.color = color * intensity;
+        //lt.intensity = Mathf.PingPong(Time.time, intensity);
+        lt.intensity = intensity;
+    }
+    public void changeLight_orientation()
+    { 
+        rotationX = Random.Range(60f, 120f);
+        rotationZ = Random.Range(60f, 120f);
+        lt.transform.rotation = Quaternion.Euler(new Vector3(rotationX, 0f, rotationZ));
 
-            nextSpawnTime = Time.time + spawnDelay;
+        nextSpawnTime = Time.time + spawnDelay;
     }
 
     private bool ShouldSpawn()

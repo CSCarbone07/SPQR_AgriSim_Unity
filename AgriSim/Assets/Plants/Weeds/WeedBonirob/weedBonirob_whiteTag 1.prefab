@@ -92,5 +92,10 @@ PrefabInstance:
       propertyPath: RGB_Mat
       value: 
       objectReference: {fileID: 2100000, guid: 8fa6ea42e375e554789a76282cabe43d, type: 2}
+    - target: {fileID: 4925517364514620433, guid: db0f841a0716e2732879939c03cbd7a9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8fa6ea42e375e554789a76282cabe43d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db0f841a0716e2732879939c03cbd7a9, type: 3}

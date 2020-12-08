@@ -11,7 +11,7 @@ public class PrefabInstatiation : MonoBehaviour
     //public int numberOfObjects = 20;
     //public float radius = 5f;
     private Vector3 myPosition;// = transform.position;
-    //private GameObject createdPrefab;
+    private List<GameObject> createdPrefabs = new List<GameObject>();
     public float gridX = 5f;
     public float gridY = 5f;
     public float spacingX = 2f;
@@ -58,55 +58,85 @@ public class PrefabInstatiation : MonoBehaviour
 
 
 
-    void Instantiate()
+    public List<GameObject> procedural_Instantiate(GameObject inGameObject)
     {
-        /*
+
         foreach (Transform child in transform) //this.gameObject.transform)
         {
             //DestroyImmediate(child.gameObject);
             GameObject.DestroyImmediate(child.gameObject);
         }
-        */
 
-        for (int i = transform.childCount - 1; i >= 0; i--)
+        //print("Instatiating prefabs");
+        print(inGameObject);
+        if (inGameObject != null)
         {
-            GameObject.DestroyImmediate(transform.GetChild(i).gameObject);
+            prefab = inGameObject;
         }
-
-        myPosition = transform.position;
-        newRotation = Quaternion.Euler(Rotation);
-        if (regenerate)
+        if (inGameObject != null)
         {
-            for (int y = 0; y < gridY; y++)
+            for (int i = transform.childCount - 1; i >= 0; i--)
             {
-                for (int x = 0; x < gridX; x++)
+                GameObject.DestroyImmediate(transform.GetChild(i).gameObject);
+            }
+
+            myPosition = transform.position;
+            newRotation = Quaternion.Euler(Rotation);
+            //print("Debugging1");
+            if(createdPrefabs != null)
+            {
+                createdPrefabs.Clear();
+            }
+            //print("Debugging2");
+
+            if (regenerate)
+            {
+                for (int y = 0; y < gridY; y++)
                 {
-                    //randomRotationValue = new Vector3(Random.Range(-90.0f, 90.0f)* addRandomRotationX, Random.Range(-90.0f, 90.0f) * addRandomRotationY, Random.Range(-90.0f, 90.0f) * addRandomRotationZ));
-                    addRandomRotation = new Vector3(addRandomRotationX, addRandomRotationY, addRandomRotationZ);
-                    randomRotationValue = addRandomRotation * (Random.Range(-90.0f, 90.0f));
-                    newRotation = Quaternion.Euler(Rotation + randomRotationValue);
+                    for (int x = 0; x < gridX; x++)
+                    {
+                        //randomRotationValue = new Vector3(Random.Range(-90.0f, 90.0f)* addRandomRotationX, Random.Range(-90.0f, 90.0f) * addRandomRotationY, Random.Range(-90.0f, 90.0f) * addRandomRotationZ));
+                        addRandomRotation = new Vector3(addRandomRotationX, addRandomRotationY, addRandomRotationZ);
+                        randomRotationValue = addRandomRotation * (Random.Range(-90.0f, 90.0f));
+                        newRotation = Quaternion.Euler(Rotation + randomRotationValue);
 
-                    if((Density/100) >= Random.Range(0.0f, 1.0f))
-                    { 
-                        Vector3 newPositionRandomness = new Vector3(Random.Range(-positionRandomness.x, positionRandomness.x), 
-                        Random.Range(-positionRandomness.y, positionRandomness.y), Random.Range(-positionRandomness.z, positionRandomness.z));
+                        if ((Density / 100) >= Random.Range(0.0f, 1.0f))
+                        {
+                            Vector3 newPositionRandomness = new Vector3(Random.Range(-positionRandomness.x, positionRandomness.x),
+                            Random.Range(-positionRandomness.y, positionRandomness.y), Random.Range(-positionRandomness.z, positionRandomness.z));
 
-                        Vector3 pos = new Vector3(x * spacingX, 0, y * spacingY) + myPosition + newPositionRandomness;
+                            Vector3 pos = new Vector3(x * spacingX, 0, y * spacingY) + myPosition + newPositionRandomness;
+                            GameObject createdPrefab = Instantiate(prefab, pos, newRotation);
+                            //print("Debugging3");
+                            createdPrefabs.Add(createdPrefab);
+                            //print("Debugging4");
 
-                        GameObject createdPrefab = Instantiate(prefab, pos, newRotation);
-                        createdPrefab.transform.SetParent(this.gameObject.transform); // = this.transform;
-                                                                                      //prefab.transform.parent = transform;
+                            createdPrefab.transform.SetParent(this.gameObject.transform); // = this.transform;
+                                                                                          //prefab.transform.parent = transform;
 
-                        float newFloatScaleRandomness = Random.Range(-scaleRandomness, scaleRandomness);
-                        Vector3 newScaleRandomness = new Vector3(newFloatScaleRandomness, newFloatScaleRandomness, newFloatScaleRandomness);
+                            float newFloatScaleRandomness = Random.Range(-scaleRandomness, scaleRandomness);
+                            Vector3 newScaleRandomness = new Vector3(newFloatScaleRandomness, newFloatScaleRandomness, newFloatScaleRandomness);
 
-                        //Vector3 newRandomness = new Vector3(Random.Range(0.0f, scaleRandomness.X), Random.Range(0.0f, scaleRandomness.Y), Random.Range(0.0f, scaleRandomness.Z));
-                        //Vector3 newScaleRandomness = new Vector3(Random.Range(-scaleRandomnessX, scaleRandomnessX), Random.Range(-scaleRandomnessY, scaleRandomnessY), Random.Range(-scaleRandomnessZ, scaleRandomnessZ));
-                        createdPrefab.transform.localScale = Scale + newScaleRandomness;
+                            //Vector3 newRandomness = new Vector3(Random.Range(0.0f, scaleRandomness.X), Random.Range(0.0f, scaleRandomness.Y), Random.Range(0.0f, scaleRandomness.Z));
+                            //Vector3 newScaleRandomness = new Vector3(Random.Range(-scaleRandomnessX, scaleRandomnessX), Random.Range(-scaleRandomnessY, scaleRandomnessY), Random.Range(-scaleRandomnessZ, scaleRandomnessZ));
+
+                            if (createdPrefab.GetComponent<SpawnerAndSwitch>())
+                            {
+                                createdPrefab.GetComponent<SpawnerAndSwitch>().Spawn();
+                            }
+                            //createdPrefab.transform.localScale = Scale + newScaleRandomness;
+
+                        }
                     }
                 }
             }
         }
+        foreach (Transform child in transform)
+        {
+            //Vector3 newScaleRandomness = new Vector3(newFloatScaleRandomness, newFloatScaleRandomness, newFloatScaleRandomness);
+            child.transform.localScale = Scale; // + newScaleRandomness;
+        }
+        return createdPrefabs;
     }
 
 
@@ -124,7 +154,7 @@ public class PrefabInstatiation : MonoBehaviour
 
         if (updateInstantiation)
         {
-            Instantiate();
+            procedural_Instantiate(prefab);
             updateInstantiation = false;
         }
 

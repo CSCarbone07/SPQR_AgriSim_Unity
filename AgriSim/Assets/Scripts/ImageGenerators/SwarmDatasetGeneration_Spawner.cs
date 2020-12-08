@@ -1,19 +1,30 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using System.IO;
 using Random = UnityEngine.Random;
 
-public class SwarmDatasetGeneration_Spawner
- : MonoBehaviour
+public class SwarmDatasetGeneration_Spawner : MonoBehaviour
 {
 
     private Vector3 cameraInitialPosition;
 
+    public int seed = 1;
+
+    public bool varyField = true;
+    public bool varyCamera_position = true;
+    public bool varyCamera_rotation = true;
+    public bool varyIllumination_intensity = true;
+    public bool varyIllumination_orientation = true;
+    public bool overlapTest = false;
+
     public bool Include_NIR = false;
+    private bool firstSpawn = true;
 
-
+    public GameObject goodPlantSpawner;
+    private GameObject spawned_goodPlantSpawner;
     public GameObject goodPlant;
     public Vector3 goodPlant_Offset = new Vector3(0f, 0.1f, 0f);
 
@@ -32,6 +43,8 @@ public class SwarmDatasetGeneration_Spawner
     //public static int WeedInit = 14;//5;//20;
     public int WeedNumber = 14;
 
+    public GameObject weedPlantSpawner;
+    private GameObject spawned_weedPlantSpawner;
     public GameObject[] weedPlants;
     public Vector3[] weedPlants_Offset;
     public Vector3[] weedPlants_Rotation_Min;
@@ -79,7 +92,7 @@ public class SwarmDatasetGeneration_Spawner
     protected Vector3 randomRotationValue;
 
     protected static int plantNumber = 84;//9;//65;
-    protected static int cropRows = 6;//3;//5;
+    public int cropRows = 6;//3;//5;
 
     //private static int CapsellaNumber = 8;
     //private static int GalliumNumber = 8;
@@ -88,10 +101,12 @@ public class SwarmDatasetGeneration_Spawner
     string[] boxes; //= new string[plantNumber + WeedNumber];
 
     // object instances 
-    protected GameObject[] newPlant = new GameObject[plantNumber];
-    protected GameObject[] newWeed; //= new GameObject[WeedInit];
-    //private GameObject[] newCapsella = new GameObject[CapsellaNumber];
-    //private GameObject[] newGallium = new GameObject[GalliumNumber];
+    protected GameObject newPlantField;
+    //protected GameObject[] newPlant;// = new GameObject[plantNumber];
+    //protected GameObject[] newWeed; //= new GameObject[WeedInit];
+    protected List<GameObject> newPlant;
+    protected List<GameObject> newWeed;
+
     protected GameObject newTerrain;
 
     protected int beetLeafAmount = 7;
@@ -119,7 +134,8 @@ public class SwarmDatasetGeneration_Spawner
     // counter to save pictures incrementally
     protected static int imgPerWeedNumber = 5;
     protected int counter;// = WeedNumber * imgPerWeedNumber;
-
+    public int minImageIndex = 1;
+    public int maxImageIndex = 10;
 
     // camera resolution
     protected int width = 1024;
@@ -153,11 +169,14 @@ public class SwarmDatasetGeneration_Spawner
     // Start is called before the first frame update
     public void Start()
     {
+        Random.seed = seed;
+
         cameraInitialPosition = this.transform.position;
-        newWeed = new GameObject[WeedNumber];
+        //newWeed = new GameObject[WeedNumber];
         boxes = new string[plantNumber + WeedNumber];
         //counter = WeedNumber * imgPerWeedNumber;
-        counter = 534;
+
+        counter = minImageIndex-1; // so its incremented again in the dataloop
         specs = new species[plantNumber + WeedNumber];
 
         if(Include_NIR)
@@ -185,6 +204,12 @@ public class SwarmDatasetGeneration_Spawner
             TAGswitchDelay = 2;
         }
 
+        if(!varyField)
+        {
+            SpawnTerrain();
+            Spawn(); 
+        }
+        dataLoop();
 
 
     }
@@ -193,66 +218,90 @@ public class SwarmDatasetGeneration_Spawner
     public void Update()
     {
         //Debug.Log(nextSpawnTime);
-        if (ShouldSpawn())
+
+    }
+
+    void dataLoop()
+    {
+
+        Debug.Log("spawning");
+        CounterUpdate();
+
+        //print(Application.persistentDataPath);
+        if (varyField)
         {
-            Debug.Log("spawning");
-            /*
-            print(counter);
-            if (counter == (WeedInit * imgPerWeedNumber) + imgPerWeedNumber)
-            {
-                TakeScreenshots = false;
-            }
-            if (counter == (WeedNumber + 1) * imgPerWeedNumber)
-            {
-                WeedNumber++;
-                Array.Resize(ref boxes, BeetNumber + WeedNumber);
-                Array.Resize(ref newWeed, WeedNumber);
-                print(WeedNumber);
-            }
-            */
-            //print(Application.persistentDataPath);
             SpawnTerrain();
             Spawn();
-            float randInitX = Random.Range(-3, 3);
-            float randInitY = Random.Range(-0.5f, 0.5f);
-            float randInitZ = Random.Range(-3, 3);
+        }
+        else
+        {
+            if(!firstSpawn)
+            {
+                SwitchToRGB();
+                print("switched to RGB");
+            }
+
+        }
+        if (varyCamera_position)
+        { 
+            float randInitX = Random.Range(-0.1f, 0.1f);
+            float randInitY = Random.Range(-0.1f, 0.1f);
+            float randInitZ = Random.Range(-0.1f, 0.1f);
+
             Vector3 RandomPosition = new Vector3(randInitX, randInitY, randInitZ);
             this.transform.position = cameraInitialPosition + RandomPosition;
+        }
+        if (varyCamera_rotation)
+        {
+            float randomRot = Random.Range(-89, 89);
+            this.transform.rotation = Quaternion.Euler(90, randomRot, 0);
+        }
+        if (varyIllumination_intensity || varyIllumination_orientation)
+        {
+            RandomLightAndPosition();
+        }
 
+        if (TakeScreenshots)
+        {
+            //Invoke("saveSingleMasks", 1f);
+            //Invoke("SaveRGB", 0.5f);
+            Invoke("SaveRGB", 1.0f);
+        }
+
+        if (Include_NIR)
+        {
+            Invoke("SwitchToNIR", NIRswitchDelay);
             if (TakeScreenshots)
             {
-                //Invoke("saveSingleMasks", 1f);
-                //Invoke("SaveRGB", 0.5f);
-                Invoke("SaveRGB", 1.0f);
+                //Invoke("SaveNIR", 1.5f);
+                //Invoke("SaveTAG", 2.5f);
+                Invoke("SaveNIR", 3.0f);
+                Invoke("SaveTAG", 5.0f);
             }
-
-            if (Include_NIR)
+        }
+        else
+        {
+            if (TakeScreenshots)
             {
-                Invoke("SwitchToNIR", NIRswitchDelay);
-                if (TakeScreenshots)
-                {
-                    //Invoke("SaveNIR", 1.5f);
-                    //Invoke("SaveTAG", 2.5f);
-                    Invoke("SaveNIR", 3.0f);
-                    Invoke("SaveTAG", 5.0f);
-                }
-            }
-            else
-            {
-                if (TakeScreenshots)
-                {
-                    //Invoke("saveTAG", 1.5f);
-                    Invoke("saveTAG", 3.0f);
+                //Invoke("saveTAG", 1.5f);
+                Invoke("saveTAG", 3.0f);
 
-                }
             }
+        }
 
-            Invoke("SwitchToTAG", TAGswitchDelay);
+        Invoke("SwitchToTAG", TAGswitchDelay);
+        if (varyField)
+        {
             Invoke("clearScene", clearDelay);
-
+        }
+        else
+        {
+            Invoke("dataLoop", clearDelay);
+            firstSpawn = false;
         }
 
     }
+
 
     private bool ShouldSpawn()
     {
@@ -266,7 +315,7 @@ public class SwarmDatasetGeneration_Spawner
     private void CounterUpdate()
     {
         counter++;
-        if(counter >= 1001)
+        if(counter > maxImageIndex)
         {
             UnityEditor.EditorApplication.isPlaying = false;
         }
@@ -286,7 +335,7 @@ public class SwarmDatasetGeneration_Spawner
         {
             Destroy(newWeed[i]);
         }
-        CounterUpdate();
+
     }
 
 
@@ -298,8 +347,26 @@ public class SwarmDatasetGeneration_Spawner
         float z_offset = 0.53f;
 
         Vector3 pos = RandomPosition();
-        Vector3 start_pos = pos;
+        Vector3 plant_start_pos = goodPlant_Offset;
+        Vector3 weed_start_pos = weedPlants_Offset[0];
+        if (spawned_goodPlantSpawner == null)
+        {
+            spawned_goodPlantSpawner = Instantiate(goodPlantSpawner, plant_start_pos, Quaternion.Euler(0, 0, 0));
+        }
+        if (spawned_goodPlantSpawner != null)
+        {
+            newPlant = spawned_goodPlantSpawner.GetComponent<PrefabInstatiation>().procedural_Instantiate(goodPlant);
+        }
+        if(spawned_weedPlantSpawner == null)
+        {
+            spawned_weedPlantSpawner = Instantiate(weedPlantSpawner, weed_start_pos, Quaternion.Euler(0, 0, 0));
+        }
+        if (spawned_weedPlantSpawner != null)
+        {
+            newWeed = spawned_weedPlantSpawner.GetComponent<PrefabInstatiation>().procedural_Instantiate(weedPlants[0]);
+        }
 
+        /*
         for (int j = 0; j < cropRows; j++)
         {
             for (int k = 0; k < plantNumber / cropRows; k++)
@@ -330,20 +397,44 @@ public class SwarmDatasetGeneration_Spawner
             newWeed[i] = SpawnWeedPlant(tempPosition);
             //changeColor(newWeed[i], 0.5f, 0.6f);
         }
-
+        */
         if (TakeScreenshots)
         {
             print("shot");
         }
 
-        RandomLightAndPosition();
+
 
         nextSpawnTime = Time.time + spawnDelay;
         nextNIRswitch = Time.time + NIRswitchDelay;
     }
 
+    private void SwitchToRGB()
+    {
+        /*
+        for (int i = 0; i < plantNumber; i++)
+        {
+            newPlant[i].GetComponent<SpawnerAndSwitch>().SwitchToRGB();
+        }
+        for (int i = 0; i < WeedNumber; i++)
+        {
+            newWeed[i].GetComponent<SpawnerAndSwitch>().SwitchToRGB();
+        }
+        */
+        foreach (GameObject g in newPlant)
+        {
+            g.GetComponent<SpawnerAndSwitch>().SwitchToRGB();
+        }
+        foreach (GameObject g in newWeed)
+        {
+            g.GetComponent<SpawnerAndSwitch>().SwitchToRGB();
+        }
+        newTerrain.GetComponent<SpawnerAndSwitch>().SwitchToRGB();
+    }
+
     private void SwitchToNIR()
     {
+        /*
         for (int i = 0; i < plantNumber; i++)
         {
             newPlant[i].GetComponent<SpawnerAndSwitch>().SwitchToNIR();
@@ -352,11 +443,21 @@ public class SwarmDatasetGeneration_Spawner
         {
             newWeed[i].GetComponent<SpawnerAndSwitch>().SwitchToNIR();
         }
+        */
+        foreach (GameObject g in newPlant)
+        {
+            g.GetComponent<SpawnerAndSwitch>().SwitchToNIR();
+        }
+        foreach (GameObject g in newWeed)
+        {
+            g.GetComponent<SpawnerAndSwitch>().SwitchToNIR();
+        }
         newTerrain.GetComponent<SpawnerAndSwitch>().SwitchToNIR();
     }
 
     private void SwitchToTAG()
     {
+        /*
         for (int i = 0; i < plantNumber; i++)
         {
             newPlant[i].GetComponent<SpawnerAndSwitch>().SwitchToTAG();
@@ -364,6 +465,15 @@ public class SwarmDatasetGeneration_Spawner
         for (int i = 0; i < WeedNumber; i++)
         {
             newWeed[i].GetComponent<SpawnerAndSwitch>().SwitchToTAG();
+        }
+        */
+        foreach (GameObject g in newPlant)
+        {
+            g.GetComponent<SpawnerAndSwitch>().SwitchToTAG();
+        }
+        foreach (GameObject g in newWeed)
+        {
+            g.GetComponent<SpawnerAndSwitch>().SwitchToTAG();
         }
         newTerrain.GetComponent<SpawnerAndSwitch>().SwitchToTAG();
     }
@@ -481,11 +591,15 @@ public class SwarmDatasetGeneration_Spawner
             }
 
             //change light
-            GameObject myLight = GameObject.Find("Directional Light");
-            if (myLight)
+            //if (myLight == null)
+            GameObject myLight = GameObject.Find("Directional Light"); 
+            if (myLight != null)
             {
-                print("change light");
-                myLight.GetComponent<RandomLight>().changeLight();
+                //print("change light");
+                if (varyIllumination_intensity)
+                { myLight.GetComponent<RandomLight>().changeLight_intensity(); }
+                if(varyIllumination_orientation)
+                { myLight.GetComponent<RandomLight>().changeLight_orientation(); }
             }
             /*
             if (TakeScreenshots)
@@ -762,7 +876,7 @@ public class SwarmDatasetGeneration_Spawner
         {
             GameObject[] objects = new GameObject[plantNumber + WeedNumber];
             newPlant.CopyTo(objects, 0);
-            newWeed.CopyTo(objects, newPlant.Length);
+            newWeed.CopyTo(objects, newPlant.Count);
 
             for (int i = 0; i < objects.Length; i++)
             {
@@ -934,7 +1048,7 @@ public class SwarmDatasetGeneration_Spawner
         {
             GameObject[] objects = new GameObject[plantNumber + WeedNumber];
             newPlant.CopyTo(objects, 0);
-            newWeed.CopyTo(objects, newPlant.Length);
+            newWeed.CopyTo(objects, newPlant.Count);
 
             changeMaterial(white, newTerrain);
 

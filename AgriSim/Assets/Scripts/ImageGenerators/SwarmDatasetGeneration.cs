@@ -285,7 +285,7 @@ public class SwarmDatasetGeneration
             if (myLight)
             {
                 print("change light");
-                myLight.GetComponent<RandomLight>().changeLight();
+                myLight.GetComponent<RandomLight>().changeLight_intensity();
             }
             TakeShot(type.Image, f);
         }

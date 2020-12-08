@@ -23,6 +23,12 @@ public class SpawnerAndSwitch : MonoBehaviour
 
     }
 
+    public virtual void SwitchToRGB()
+    {
+
+    }
+
+
     public virtual void SwitchToNIR()
     {
         /*

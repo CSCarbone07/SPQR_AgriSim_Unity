@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class quadPlant_Spawner : SpawnerAndSwitch
 {
     public Material RGB_Mat;
@@ -22,6 +23,10 @@ public class quadPlant_Spawner : SpawnerAndSwitch
 
         if(randomizeTexture)
         {
+            RGB_Mat = new Material(RGB_Mat);
+            NIR_Mat = new Material(NIR_Mat);
+            TAG_Mat = new Material(TAG_Mat);
+
             //Texture2D myTexture = Resources.Load<Texture2D>(Application.dataPath + "Assets/Plants/Weeds/WeedBonirob/bonirob_2016-05-23-10-42-16_1_frame29.png");
             //Texture2D[] texturePool = new Texture2D[3];
             //texturePool = Resources.LoadAll<Texture2D>("bonirob/weds/rgb");
@@ -44,7 +49,7 @@ public class quadPlant_Spawner : SpawnerAndSwitch
             }
             */
             //GetComponent<Renderer>().material.mainTexture = myRGBTexture; //("_MainTex", myTexture);
-
+            //print("spawning weed " + myRGBTexture);
             RGB_Mat.mainTexture = myRGBTexture; //("_MainTex", myTexture);
             NIR_Mat.mainTexture = myNIRTexture; //("_MainTex", myTexture);
             TAG_Mat.mainTexture = myRGBTexture; //("_MainTex", myTexture);
@@ -60,7 +65,12 @@ public class quadPlant_Spawner : SpawnerAndSwitch
     {
 
     }
-
+    public override void SwitchToRGB()
+    {
+        base.SwitchToRGB();
+        GetComponent<Renderer>().material = RGB_Mat;
+        //Debug.Log("weeeed");       
+    }
     public override void SwitchToNIR()
     {
         base.SwitchToNIR();

@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bd4bf8eae65b12e04827f4d915b559da, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,5 +106,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe656f4ae1a4ac1209be2159a68406c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RGB_Mat: {fileID: 0}
   NIR_Mat: {fileID: 2100000, guid: 26fa3acc0c2bf1c5b91130b9fde46746, type: 2}
   TAG_Mat: {fileID: 2100000, guid: 043ab3b0f1c1efcca98d6fedd8488f02, type: 2}
+  randomizeTexture: 0
+  pathToTextures_RGB: bonirob/weeds/rgb/
+  pathToTextures_NIR: bonirob/weeds/nir/
+  maxIndexOfTextures: 51
+  weedScale: {x: 1, y: 1, z: 1}

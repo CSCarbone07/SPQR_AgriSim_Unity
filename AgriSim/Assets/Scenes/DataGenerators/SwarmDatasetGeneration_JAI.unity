@@ -150,8 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df9cafeae9b4461d8fed5db706a3843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lowest_intensity_multiplier: 0.9
-  highest_intensity_multiplier: 1.1
+  lowest_intensity_multiplier: 0.8
+  highest_intensity_multiplier: 8
 --- !u!108 &1765163273
 Light:
   m_ObjectHideFlags: 0
@@ -346,7 +346,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830221450}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.5, y: 2, z: -0.7}
+  m_LocalPosition: {x: 5, y: 10, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -364,12 +364,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa7ab44c00761145afbf964fd64ec3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seed: 1
+  varyField: 1
+  varyCamera_position: 1
+  varyCamera_rotation: 1
+  varyIllumination_intensity: 1
+  varyIllumination_orientation: 1
+  overlapTest: 0
   Include_NIR: 0
+  goodPlantSpawner: {fileID: 0}
   goodPlant: {fileID: 3247680888802322304, guid: fae438e451b0198f9a62a34e6995e8d0,
     type: 3}
   goodPlant_Offset: {x: 0, y: 0.1, z: 0}
   goodPlantScale: {x: 1, y: 1, z: 1}
   WeedNumber: 14
+  weedPlantSpawner: {fileID: 0}
   weedPlants: []
   weedPlants_Offset: []
   weedPlants_Rotation_Min: []
@@ -391,6 +400,9 @@ MonoBehaviour:
   terrain: {fileID: 4754444019115480821, guid: 66f9ef7a15d52578b8fd4ff13a2b0d52, type: 3}
   TakeScreenshots: 0
   SaveBoxes: 0
+  cropRows: 6
+  minImageIndex: 1
+  maxImageIndex: 10
 --- !u!114 &1830221455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,16 +415,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e471cf2e5e40fa11be6a3e6e8da6f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seed: 1
+  varyField: 0
+  varyCamera_position: 0
+  varyCamera_rotation: 0
+  varyIllumination_intensity: 0
+  varyIllumination_orientation: 0
+  overlapTest: 0
   Include_NIR: 1
+  goodPlantSpawner: {fileID: 3441688999748511668, guid: 2f5df025a08190aeb96b716f465259d4,
+    type: 3}
   goodPlant: {fileID: 9162085571466964456, guid: 0d209be6d6c71c823810c667f47e932d,
     type: 3}
   goodPlant_Offset: {x: 0, y: 0.2, z: 0}
   goodPlantScale: {x: 1, y: 1, z: 1}
   WeedNumber: 100
+  weedPlantSpawner: {fileID: 3441688999748511668, guid: 849322a85fa2bf058a0145dc74b2dbcf,
+    type: 3}
   weedPlants:
   - {fileID: 1880638552065739605, guid: 8662116dd1f62d41daab71c69c79dc5d, type: 3}
   weedPlants_Offset:
-  - {x: 0, y: 0.15, z: 0}
+  - {x: 0, y: 1, z: 0}
   weedPlants_Rotation_Min:
   - {x: 180, y: -180, z: 0}
   weedPlants_Rotation_Max:
@@ -433,5 +456,8 @@ MonoBehaviour:
   green: {fileID: 0}
   white: {fileID: 0}
   terrain: {fileID: 339873330507695336, guid: 4547266bb275acd519eccc25bfae6f16, type: 3}
-  TakeScreenshots: 1
+  TakeScreenshots: 0
   SaveBoxes: 0
+  cropRows: 20
+  minImageIndex: 1
+  maxImageIndex: 100
