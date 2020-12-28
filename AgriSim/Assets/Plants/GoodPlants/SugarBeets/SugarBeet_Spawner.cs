@@ -98,7 +98,6 @@ public class SugarBeet_Spawner : SpawnerAndSwitch
 
     public override void Spawn()
     {
-        base.Spawn();
 
         foreach (Transform child in transform) //this.gameObject.transform)
         {
@@ -139,10 +138,12 @@ public class SugarBeet_Spawner : SpawnerAndSwitch
             {
                 createdPrefabLeaf.transform.localScale = beetLeafScale * 0;
             }
+            createdPrefabLeaf.isStatic = true;
             createdPrefabLeaf.SetActive(true);
             createdPrefabLeaf.AddComponent<MeshRenderer>();
             createdPrefabLeaf.transform.SetParent(this.transform);
             createdPrefabLeaves[x] = createdPrefabLeaf;
+
 
 
             //Material leafMaterial = FindObjectOfType(typeof(Renderer));
@@ -252,7 +253,12 @@ public class SugarBeet_Spawner : SpawnerAndSwitch
         if (didSpawnedOnce == false)
         { didSpawnedOnce = true; }
 
+        base.Spawn();
+
+
     }
+
+
 
     // calculate signed triangle area using a kind of "2D cross product":
     float Area(Vector2 p1, Vector2 p2, Vector2 p3) 

@@ -21,6 +21,17 @@ public class SpawnerAndSwitch : MonoBehaviour
     public virtual void Spawn()
     {
 
+        SetAllChildrenStatic(this.transform);
+
+    }
+
+    void SetAllChildrenStatic(Transform ob)
+    {
+        foreach (Transform child in ob)//.GetComponentsInChildren<Transform>())
+        {
+            child.gameObject.isStatic = true;
+            SetAllChildrenStatic(child);
+        }
     }
 
     public virtual void SwitchToRGB()

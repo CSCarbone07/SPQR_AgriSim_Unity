@@ -371,6 +371,7 @@ MonoBehaviour:
   varyIllumination_intensity: 1
   varyIllumination_orientation: 1
   overlapTest: 0
+  altitude: 10
   Include_NIR: 0
   goodPlantSpawner: {fileID: 0}
   goodPlant: {fileID: 3247680888802322304, guid: fae438e451b0198f9a62a34e6995e8d0,
@@ -421,7 +422,8 @@ MonoBehaviour:
   varyCamera_rotation: 0
   varyIllumination_intensity: 0
   varyIllumination_orientation: 0
-  overlapTest: 0
+  overlapTest: 1
+  altitude: 9.53
   Include_NIR: 1
   goodPlantSpawner: {fileID: 3441688999748511668, guid: 2f5df025a08190aeb96b716f465259d4,
     type: 3}
@@ -456,7 +458,7 @@ MonoBehaviour:
   green: {fileID: 0}
   white: {fileID: 0}
   terrain: {fileID: 339873330507695336, guid: 4547266bb275acd519eccc25bfae6f16, type: 3}
-  TakeScreenshots: 0
+  TakeScreenshots: 1
   SaveBoxes: 0
   cropRows: 20
   minImageIndex: 1

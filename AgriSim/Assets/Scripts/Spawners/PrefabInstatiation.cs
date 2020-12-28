@@ -60,6 +60,8 @@ public class PrefabInstatiation : MonoBehaviour
 
     public List<GameObject> procedural_Instantiate(GameObject inGameObject)
     {
+        gameObject.isStatic = true;
+
 
         foreach (Transform child in transform) //this.gameObject.transform)
         {
@@ -91,6 +93,7 @@ public class PrefabInstatiation : MonoBehaviour
 
             if (regenerate)
             {
+
                 for (int y = 0; y < gridY; y++)
                 {
                     for (int x = 0; x < gridX; x++)

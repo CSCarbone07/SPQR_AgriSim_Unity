@@ -19,6 +19,14 @@ public class SwarmDatasetGeneration_Spawner : MonoBehaviour
     public bool varyIllumination_intensity = true;
     public bool varyIllumination_orientation = true;
     public bool overlapTest = false;
+    public float altitude = 10;
+    private int overlapRow = -1;
+    private int overlapColumn = -1;
+    private int overlapWidth_0 = 0;
+    private int overlapWidth_1 = 0;
+    private int overlapHeight_0 = 0;
+    private int overlapHeight_1 = 0;
+
 
     public bool Include_NIR = false;
     private bool firstSpawn = true;
@@ -261,6 +269,37 @@ public class SwarmDatasetGeneration_Spawner : MonoBehaviour
             RandomLightAndPosition();
         }
 
+
+        if (overlapTest)
+        {
+            if (overlapColumn > 1)
+            {
+                UnityEditor.EditorApplication.isPlaying = false;
+            }
+
+            float fov = GetComponent<Camera>().fieldOfView;
+            float shiftDistance = 2 * altitude * Mathf.Tan((fov/2)* Mathf.Deg2Rad);
+            this.transform.position = cameraInitialPosition + new Vector3((shiftDistance / 3.0f) * overlapRow, 0, (shiftDistance / 3.0f) * overlapColumn);
+            //-1 0 1
+            //2 1 0
+            overlapWidth_0 =((width / 3) * (1-overlapRow));
+            overlapWidth_1 =((width / 3) * (2-overlapRow));
+
+            overlapHeight_0 = ((height / 3) * (1-overlapColumn));
+            overlapHeight_1 = ((height / 3) * (2-overlapColumn));
+
+            print(fov);
+            print(shiftDistance);
+
+            overlapRow++;
+            if (overlapRow > 1)
+            {
+                overlapRow = -1;
+                overlapColumn++;
+            }
+
+        }
+
         if (TakeScreenshots)
         {
             //Invoke("saveSingleMasks", 1f);
@@ -411,16 +450,6 @@ public class SwarmDatasetGeneration_Spawner : MonoBehaviour
 
     private void SwitchToRGB()
     {
-        /*
-        for (int i = 0; i < plantNumber; i++)
-        {
-            newPlant[i].GetComponent<SpawnerAndSwitch>().SwitchToRGB();
-        }
-        for (int i = 0; i < WeedNumber; i++)
-        {
-            newWeed[i].GetComponent<SpawnerAndSwitch>().SwitchToRGB();
-        }
-        */
         foreach (GameObject g in newPlant)
         {
             g.GetComponent<SpawnerAndSwitch>().SwitchToRGB();
@@ -482,13 +511,27 @@ public class SwarmDatasetGeneration_Spawner : MonoBehaviour
 
     private void SaveRGB() //mode can be type.Image or type.Mask
     {
+        RenderTexture rt;
+        Texture2D screenShot;
+        if (overlapTest)
+        {
+            rt = new RenderTexture(width, height, 24);
+            GetComponent<Camera>().targetTexture = rt;
+            screenShot = new Texture2D(width/3, height/3, TextureFormat.RGB24, false);
+            GetComponent<Camera>().Render();
+            RenderTexture.active = rt;
+            screenShot.ReadPixels(new Rect(overlapWidth_0, overlapHeight_0, overlapWidth_1, overlapHeight_1), 0, 0, false);
+        }
+        else
+        {
+            rt = new RenderTexture(width, height, 24);
+            GetComponent<Camera>().targetTexture = rt;
+            screenShot = new Texture2D(width, height, TextureFormat.RGB24, false);
+            GetComponent<Camera>().Render();
+            RenderTexture.active = rt;
+            screenShot.ReadPixels(new Rect(0, 0, width, height), 0, 0);
+        }
 
-        RenderTexture rt = new RenderTexture(width, height, 24);
-        GetComponent<Camera>().targetTexture = rt;
-        Texture2D screenShot = new Texture2D(width, height, TextureFormat.RGB24, false);
-        GetComponent<Camera>().Render();
-        RenderTexture.active = rt;
-        screenShot.ReadPixels(new Rect(0, 0, width, height), 0, 0);
 
         GetComponent<Camera>().targetTexture = null;
         RenderTexture.active = null;
@@ -503,12 +546,26 @@ public class SwarmDatasetGeneration_Spawner : MonoBehaviour
     private void SaveNIR() //mode can be type.Image or type.Mask
     {
 
-        RenderTexture rt = new RenderTexture(width, height, 24);
-        GetComponent<Camera>().targetTexture = rt;
-        Texture2D screenShot = new Texture2D(width, height, TextureFormat.RGB24, false);
-        GetComponent<Camera>().Render();
-        RenderTexture.active = rt;
-        screenShot.ReadPixels(new Rect(0, 0, width, height), 0, 0);
+        RenderTexture rt;
+        Texture2D screenShot;
+        if (overlapTest)
+        {
+            rt = new RenderTexture(width, height, 24);
+            GetComponent<Camera>().targetTexture = rt;
+            screenShot = new Texture2D(width / 3, height / 3, TextureFormat.RGB24, false);
+            GetComponent<Camera>().Render();
+            RenderTexture.active = rt;
+            screenShot.ReadPixels(new Rect(overlapWidth_0, overlapHeight_0, overlapWidth_1, overlapHeight_1), 0, 0, false);
+        }
+        else
+        {
+            rt = new RenderTexture(width, height, 24);
+            GetComponent<Camera>().targetTexture = rt;
+            screenShot = new Texture2D(width, height, TextureFormat.RGB24, false);
+            GetComponent<Camera>().Render();
+            RenderTexture.active = rt;
+            screenShot.ReadPixels(new Rect(0, 0, width, height), 0, 0);
+        }
 
         GetComponent<Camera>().targetTexture = null;
         RenderTexture.active = null;
@@ -523,12 +580,26 @@ public class SwarmDatasetGeneration_Spawner : MonoBehaviour
     private void SaveTAG() //mode can be type.Image or type.Mask
     {
 
-        RenderTexture rt = new RenderTexture(width, height, 24);
-        GetComponent<Camera>().targetTexture = rt;
-        Texture2D screenShot = new Texture2D(width, height, TextureFormat.RGB24, false);
-        GetComponent<Camera>().Render();
-        RenderTexture.active = rt;
-        screenShot.ReadPixels(new Rect(0, 0, width, height), 0, 0);
+        RenderTexture rt;
+        Texture2D screenShot;
+        if (overlapTest)
+        {
+            rt = new RenderTexture(width, height, 24);
+            GetComponent<Camera>().targetTexture = rt;
+            screenShot = new Texture2D(width / 3, height / 3, TextureFormat.RGB24, false);
+            GetComponent<Camera>().Render();
+            RenderTexture.active = rt;
+            screenShot.ReadPixels(new Rect(overlapWidth_0, overlapHeight_0, overlapWidth_1, overlapHeight_1), 0, 0, false);
+        }
+        else
+        {
+            rt = new RenderTexture(width, height, 24);
+            GetComponent<Camera>().targetTexture = rt;
+            screenShot = new Texture2D(width, height, TextureFormat.RGB24, false);
+            GetComponent<Camera>().Render();
+            RenderTexture.active = rt;
+            screenShot.ReadPixels(new Rect(0, 0, width, height), 0, 0);
+        }
 
         GetComponent<Camera>().targetTexture = null;
         RenderTexture.active = null;
